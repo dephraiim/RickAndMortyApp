@@ -119,7 +119,7 @@ export default function Page() {
           </View>
 
           {isLoading && (
-            <View className="mt-60">
+            <View className="my-52">
               <ActivityIndicator color="#fff" size="large" />
             </View>
           )}
@@ -194,27 +194,28 @@ export default function Page() {
                 );
               })}
           </View>
-
-          <View className="flex flex-row justify-between mt-10 mx-2">
-            <TouchableOpacity
-              onPress={() => {
-                if (data.info.prev) {
-                  setPage(page - 1);
-                }
-              }}
-            >
-              <ArrowSmallLeftIcon color="#fff" size={30} strokeWidth={3} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                if (data.info.next) {
-                  setPage(page + 1);
-                }
-              }}
-            >
-              <ArrowSmallRightIcon color="#fff" size={30} strokeWidth={3} />
-            </TouchableOpacity>
-          </View>
+          {!isLoading && (
+            <View className="flex flex-row justify-between mt-10 mx-2">
+              <TouchableOpacity
+                onPress={() => {
+                  if (data.info.prev) {
+                    setPage(page - 1);
+                  }
+                }}
+              >
+                <ArrowSmallLeftIcon color="#fff" size={30} strokeWidth={3} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  if (data.info.next) {
+                    setPage(page + 1);
+                  }
+                }}
+              >
+                <ArrowSmallRightIcon color="#fff" size={30} strokeWidth={3} />
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
